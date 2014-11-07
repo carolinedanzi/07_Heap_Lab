@@ -94,6 +94,5 @@ std::pair<Pri, T> Heap<Pri, T>::remove(){
 
 template<class Pri, class T>
 unsigned long Heap<Pri, T>::getNumItems(){
-	//TODO
-	return 0;
+	return numItems;
 }
