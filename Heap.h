@@ -89,7 +89,20 @@ void Heap<Pri, T>::add(std::pair<Pri, T> toAdd){
 
 template<class Pri, class T>
 void Heap<Pri, T>::bubbleUp(unsigned long index){
-	//TODO
+	// If the item at the index's priority is less than its parent's 
+	// priority, swap them and then continue to bubble up. 
+	// Note: the parent of a node at index i can be found at
+	// index (i-1)/2
+	if (backingArray[index].first < backingArray[(index - 1) / 2].first){
+		swap(backingArray[index], backingArray[(index - 1) / 2]);
+		bubbleUp((index - 1) / 2);
+	}
+	// Else if the item's parent's priority is less than or equal to
+	// this item's priority, keep them where they are and just return
+	else{
+		return;
+	}
+
 }
 
 template<class Pri, class T>
@@ -99,9 +112,20 @@ void Heap<Pri, T>::trickleDown(unsigned long index){
 
 template<class Pri, class T>
 std::pair<Pri, T> Heap<Pri, T>::remove(){
-	//TODO
-	std::pair<Pri, T> tmp;
-	return tmp;
+	if (numItems == 0)
+		throw new std::string("Tried to remove from an empty Queue");
+
+	std::pair<Pri, T> removedItem = backingArray[0];
+
+	// Put the item in the last spot of the array into
+	// the first spot (last index = numItems - 1)
+	numItems--;
+	backingArray[0] = backingArray[numItems];
+	
+	// Swap the item to the correct location in the array
+	trickleDown(0);
+
+	return removedItem;
 }
 
 template<class Pri, class T>
