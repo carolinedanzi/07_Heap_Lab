@@ -51,7 +51,7 @@ private:
 template<class Pri, class T>
 Heap<Pri, T>::Heap(){
 	arrSize = START_SIZE;
-	backingArray = new std::pair<Pri, T>[START_SIZE];
+	backingArray = new std::pair<Pri, T>[arrSize];
 	numItems = 0;
 }
 
@@ -89,12 +89,15 @@ void Heap<Pri, T>::add(std::pair<Pri, T> toAdd){
 
 template<class Pri, class T>
 void Heap<Pri, T>::bubbleUp(unsigned long index){
-	// If the item at the index's priority is less than its parent's 
-	// priority, swap them and then continue to bubble up. 
-	// Note: the parent of a node at index i can be found at
-	// index (i-1)/2
+	// If the item at the index's priority is less than 
+	// its parent's priority, swap them and then continue 
+	// to bubble up. Note: the parent of a node at index i 
+	// can be found at index (i-1)/2
 	if (backingArray[index].first < backingArray[(index - 1) / 2].first){
-		swap(backingArray[index], backingArray[(index - 1) / 2]);
+		std::pair<Pri, T> temp = backingArray[(index - 1) / 2];
+		backingArray[(index - 1) / 2] = backingArray[index];
+		backingArray[index] = temp;
+
 		bubbleUp((index - 1) / 2);
 	}
 	// Else if the item's parent's priority is less than or equal to
