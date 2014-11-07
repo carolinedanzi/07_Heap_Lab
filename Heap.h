@@ -63,7 +63,19 @@ Heap<Pri, T>::~Heap(){
 
 template<class Pri, class T>
 void Heap<Pri, T>::grow(){
-	//TODO
+	// Make a new array that is two times larger than the current array
+	arrSize = 2 * arrSize;
+	std::pair<Pri, T>* newArray = new std::pair<Pri, T>[arrSize];
+
+	// Copy over the items from the backing array
+	for (int i = 0; i < numItems; i++){
+		newArray[i] = backingArray[i];
+	}
+	// Make backingArray point to the new array, and delete
+	// the old backing array
+	delete[] backingArray;
+	backingArray = newArray;
+	newArray = NULL;
 }
 
 template<class Pri, class T>
