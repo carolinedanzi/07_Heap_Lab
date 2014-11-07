@@ -68,7 +68,11 @@ void Heap<Pri, T>::grow(){
 
 template<class Pri, class T>
 void Heap<Pri, T>::add(std::pair<Pri, T> toAdd){
-	//TODO
+	// Put the item at the end of the array (index = numItems)
+	// and "bubble it up" to where it should stay. Increase numItems.
+	backingArray[numItems] = toAdd;
+	bubbleUp(numItems);
+	numItems++;
 }
 
 template<class Pri, class T>
