@@ -89,6 +89,10 @@ void Heap<Pri, T>::add(std::pair<Pri, T> toAdd){
 
 template<class Pri, class T>
 void Heap<Pri, T>::bubbleUp(unsigned long index){
+	// If we just added the first element, we do not need
+	// to bubbleUp
+	if (index == 0)
+		return;
 	// If the item at the index's priority is less than 
 	// its parent's priority, swap them and then continue 
 	// to bubble up. Note: the parent of a node at index i 
