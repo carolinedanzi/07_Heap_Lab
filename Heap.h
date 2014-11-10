@@ -115,17 +115,12 @@ void Heap<Pri, T>::bubbleUp(unsigned long index){
 
 template<class Pri, class T>
 void Heap<Pri, T>::trickleDown(unsigned long index){
-	// If the index given is zero, there is only 
-	// one item so we do not need to trickleDown
-	if (index == 0){
-		return;
-	}
 	// If the current priority is greater than one of its children's 
 	// priorities, switch it with the child with lower priority
 	// Swap and call trickleDown again with the index of the child we replaced
 
 	// If the left child (at index * 2 + 1) has lower priority
-	else if (backingArray[index].first > backingArray[index * 2 + 1].first && backingArray[index * 2 + 1].first < backingArray[(index + 1) * 2].first){
+	if (backingArray[index].first > backingArray[index * 2 + 1].first && backingArray[index * 2 + 1].first < backingArray[(index + 1) * 2].first){
 		std::pair<Pri, T> temp = backingArray[index];
 		backingArray[index] = backingArray[index * 2 + 1];
 		backingArray[index * 2 + 1] = temp;
