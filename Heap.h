@@ -8,42 +8,42 @@
  * This is a priority queue, which means that as items are removed in order
  * of decreasing priority.
  *
- * 
+ *
  */
 template<class Pri, class T>
-class Heap : public Queue<std::pair<Pri, T> > {
+class Heap : public Queue < std::pair<Pri, T> > {
 public:
-  Heap();
-  ~Heap();
+	Heap();
+	~Heap();
 
-  //Add a new item
-  virtual void add(std::pair<Pri,T> toAdd);
+	//Add a new item
+	virtual void add(std::pair<Pri, T> toAdd);
 
-  //Remove the item with lowest priority, and return it
-  //If the queue is empty, throw a string exception
-  virtual std::pair<Pri,T> remove();
+	//Remove the item with lowest priority, and return it
+	//If the queue is empty, throw a string exception
+	virtual std::pair<Pri, T> remove();
 
-  //Return the number of items currently in the queue
-  virtual unsigned long getNumItems();
+	//Return the number of items currently in the queue
+	virtual unsigned long getNumItems();
 
 private:
-  int arrSize;
-  int numItems;
-  std::pair<Pri, T>* backingArray;
+	int arrSize;
+	int numItems;
+	std::pair<Pri, T>* backingArray;
 
-  //Grow the backingArray by making a new array of twice the size,
-  // and copying over the data
-  void grow();
+	//Grow the backingArray by making a new array of twice the size,
+	// and copying over the data
+	void grow();
 
-  //Check the item at index, and make sure it is in the right place.
-  // If not, swap it up the "tree" of the heap until you find the right
-  // place
-  void bubbleUp(unsigned long index);
+	//Check the item at index, and make sure it is in the right place.
+	// If not, swap it up the "tree" of the heap until you find the right
+	// place
+	void bubbleUp(unsigned long index);
 
-  //Check the item at index, and make sure it is in the right place.
-  // If not, swap it down the "tree" of the heap until you find the right
-  // place
-  void trickleDown(unsigned long index);  
+	//Check the item at index, and make sure it is in the right place.
+	// If not, swap it down the "tree" of the heap until you find the right
+	// place
+	void trickleDown(unsigned long index);
 };
 
 #include <string>
@@ -91,13 +91,14 @@ template<class Pri, class T>
 void Heap<Pri, T>::bubbleUp(unsigned long index){
 	// If we just added the first element, we do not need
 	// to bubbleUp
-	if (index == 0)
+	if (index == 0){
 		return;
+	}
 	// If the item at the index's priority is less than 
 	// its parent's priority, swap them and then continue 
 	// to bubble up. Note: the parent of a node at index i 
 	// can be found at index (i-1)/2
-	if (backingArray[index].first < backingArray[(index - 1) / 2].first){
+	else if (backingArray[index].first < backingArray[(index - 1) / 2].first){
 		std::pair<Pri, T> temp = backingArray[(index - 1) / 2];
 		backingArray[(index - 1) / 2] = backingArray[index];
 		backingArray[index] = temp;
@@ -114,7 +115,32 @@ void Heap<Pri, T>::bubbleUp(unsigned long index){
 
 template<class Pri, class T>
 void Heap<Pri, T>::trickleDown(unsigned long index){
-	//TODO
+	// If the index given is zero, there is only 
+	// one item so we do not need to trickleDown
+	if (index == 0){
+		return;
+	}
+	// If the current priority is greater than one of its children's 
+	// priorities, switch it with the child with lower priority
+	// Swap and call trickleDown again with the index of the child we replaced
+
+	// If the left child (at index * 2 + 1) has lower priority
+	else if (backingArray[index].first > backingArray[index * 2 + 1].first && backingArray[index * 2 + 1].first < backingArray[(index + 1) * 2].first){
+		std::pair<Pri, T> temp = backingArray[index];
+		backingArray[index] = backingArray[index * 2 + 1];
+		backingArray[index * 2 + 1] = temp;
+		trickleDown(index * 2 + 1);
+	}
+	// If the right child (at (index + 1) * 2) has lower priority
+	else if (backingArray[index].first > backingArray[(index + 1) * 2].first && backingArray[(index + 1) * 2].first < backingArray[index * 2 + 1].first){
+		std::pair<Pri, T> temp = backingArray[index];
+		backingArray[index] = backingArray[(index + 1) * 2];
+		backingArray[(index + 1) * 2] = temp;
+		trickleDown((index + 1) * 2);
+	}
+	else{
+		return;
+	}
 }
 
 template<class Pri, class T>
@@ -128,7 +154,7 @@ std::pair<Pri, T> Heap<Pri, T>::remove(){
 	// the first spot (last index = numItems - 1)
 	numItems--;
 	backingArray[0] = backingArray[numItems];
-	
+
 	// Swap the item to the correct location in the array
 	trickleDown(0);
 
