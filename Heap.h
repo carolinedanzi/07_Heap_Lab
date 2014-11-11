@@ -48,6 +48,15 @@ private:
 
 #include <string>
 
+/*
+Caroline Danzi
+11 November 2014
+
+Heap lab
+Originality Note: I worked alone on this project.  I went to Dr. Brinkman's
+office hours for help, but did not consult with other students.
+*/
+
 template<class Pri, class T>
 Heap<Pri, T>::Heap(){
 	arrSize = START_SIZE;
