@@ -30,6 +30,10 @@ Questions
 | 4 | 9 | 6 | 17 | 26 | 8 | 7 | 19 | 69 | 32 | 93 | 55 | 50 | 16 | **3** | Three is added to the end of the array
 
 | 4 | 9 | 6 | 17 | 26 | 8 | **3** | 19 | 69 | 32 | 93 | 55 | 50 | 16 | **7** | Three swaps with its parent, 7, since it is smaller.
+
+| 4 | 9 | **3** | 17 | 26 | 8 | **6** | 19 | 69 | 32 | 93 | 55 | 50 | 16 | 7 | Three swaps with its parent, 6, since it is smaller.
+
+| **3** | 9 | **4** | 17 | 26 | 8 | 6 | 19 | 69 | 32 | 93 | 55 | 50 | 16 | 7 | Finally, three swaps with its parent, 4, since it is smaller. The swapping stops here - three is the minimum value in the entire Heap, so it has higher priority and thus is at the front of the array (or, to think of the explicit representation, it is the first node).
 #### 3. Exercise 10.4 from http://opendatastructures.org/ods-cpp/10_3_Discussion_Exercises.html
 
 #### 4. What is one question that confused you about this exercise, or one piece of advice you would share with students next semester?
