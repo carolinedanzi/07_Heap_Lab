@@ -118,20 +118,30 @@ void Heap<Pri, T>::trickleDown(unsigned long index){
 	// If the current priority is greater than one of its children's 
 	// priorities, switch it with the child with lower priority
 	// Swap and call trickleDown again with the index of the child we replaced
+	
+	// Find the indexes of the children. The left child will
+	// be at index*2+1, and the right child will be at index*2+2
+	unsigned long leftChild = index * 2 + 1;
+	unsigned long rightChild = index * 2 + 2;
 
+	// Put in a case that will prevent trickleDown when there
+	// are no children
+	if (leftChild >= numItems && rightChild >= numItems){
+		return;
+	}
 	// If the left child (at index * 2 + 1) has lower priority
-	if (backingArray[index].first > backingArray[index * 2 + 1].first && backingArray[index * 2 + 1].first < backingArray[(index + 1) * 2].first){
+	else if (backingArray[index].first > backingArray[leftChild].first && backingArray[leftChild].first < backingArray[rightChild].first){
 		std::pair<Pri, T> temp = backingArray[index];
-		backingArray[index] = backingArray[index * 2 + 1];
-		backingArray[index * 2 + 1] = temp;
-		trickleDown(index * 2 + 1);
+		backingArray[index] = backingArray[leftChild];
+		backingArray[leftChild] = temp;
+		trickleDown(leftChild);
 	}
 	// If the right child (at (index + 1) * 2) has lower priority
-	else if (backingArray[index].first > backingArray[(index + 1) * 2].first && backingArray[(index + 1) * 2].first < backingArray[index * 2 + 1].first){
+	else if (backingArray[index].first > backingArray[rightChild].first && backingArray[rightChild].first < backingArray[leftChild].first){
 		std::pair<Pri, T> temp = backingArray[index];
-		backingArray[index] = backingArray[(index + 1) * 2];
-		backingArray[(index + 1) * 2] = temp;
-		trickleDown((index + 1) * 2);
+		backingArray[index] = backingArray[rightChild];
+		backingArray[rightChild] = temp;
+		trickleDown(rightChild);
 	}
 	else{
 		return;
