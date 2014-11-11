@@ -37,11 +37,21 @@ Questions
 #####10.2 - Removing 6, as shown through the implicit representation: 
 | 6 | 9 | 8 | 17 | 26 | 50 | 16 | 19 | 69 | 32 | 93 | 55 | The array before removing
 
-| **55** | 9 | 8 | 17 | 26 | 50 | 16 | 19 | 69 | 32 | 93 | 6 is removed from the array and 55 takes its place
+| **55** | 9 | 8 | 17 | 26 | 50 | 16 | 19 | 69 | 32 | 93 | Six is removed from the array and 55 takes its place
 
-| **8** | 9 | **55** | 17 | 26 | 50 | 16 | 19 | 69 | 32 | 93 | 55 swaps with its smaller child, 8
+| **8** | 9 | **55** | 17 | 26 | 50 | 16 | 19 | 69 | 32 | 93 | Fifty-five swaps with its smaller child, 8
 
-| 8 | 9 | **16** | 17 | 26 | 50 | **55** | 19 | 69 | 32 | 93 | 55 swaps with its smaller child, 16.  It has no more children, so it has reached the correct location.
+| 8 | 9 | **16** | 17 | 26 | 50 | **55** | 19 | 69 | 32 | 93 | Fifty-five swaps with its smaller child, 16.  It has no more children, so it has reached the correct location.
+#####10.2 - Removing 8, as shown through the implicit representation: 
+| 8 | 9 | 16 | 17 | 26 | 50 | 55 | 19 | 69 | 32 | 93 | The array before removing
+
+| **93** | 9 | 16 | 17 | 26 | 50 | 55 | 19 | 69 | 32 | Eight is removed and replaced with 93
+
+| **9** | **93** | 16 | 17 | 26 | 50 | 55 | 19 | 69 | 32 | Ninety-three swaps with 9, its smaller child
+
+| 9 | **17** | 16 | **93** | 26 | 50 | 55 | 19 | 69 | 32 | Nintey-three swaps with 17, its smaller child
+
+| 9 | 17 | 16 | **19** | 26 | 50 | 55 | **93** | 69 | 32 | Ninety-three swaps with 19, its smaller child. It has no more children, so the swapping stops here.
 #### 3. Exercise 10.4 from http://opendatastructures.org/ods-cpp/10_3_Discussion_Exercises.html
 
 #### 4. What is one question that confused you about this exercise, or one piece of advice you would share with students next semester?
