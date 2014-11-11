@@ -22,8 +22,9 @@ Questions
 2. TODO
 
 #### 2. Exercises 10.1 and 10.2 from http://opendatastructures.org/ods-cpp/10_3_Discussion_Exercises.html
-TODO
-
+#####10.1
+Adding 7 to the Heap, shown through implicit representation: 
+| 4 | 9 | 6 | 17 | 26 | 8 | 16 | 19 | 69 | 32 | 93 | 55 | 50 | **7** | Seven is added to the end of the array
 #### 3. Exercise 10.4 from http://opendatastructures.org/ods-cpp/10_3_Discussion_Exercises.html
 
 #### 4. What is one question that confused you about this exercise, or one piece of advice you would share with students next semester?
