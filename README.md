@@ -18,8 +18,8 @@ Questions
 
 #### 1. Which of the above requirements work, and which do not? For each requirement, write a brief response.
 
-1. TODO
-2. TODO
+1. I think I met this requirement. Grow is definitely O(n) because it copies over all the elements to a new array. Add and remove call bubbleUp and trickleDown, respectively, and I think each takes O(lgn) time. To be honest, though, I am not quite sure. I am a little confused as to what O(lgn) means.
+2. I do not think I leaked memory.  I was sure to delete the backingArray in the destructor and grow, and set the pointers to NULL.
 
 #### 2. Exercises 10.1 and 10.2 from http://opendatastructures.org/ods-cpp/10_3_Discussion_Exercises.html
 #####10.1 - Adding 7 to the Heap, shown through implicit representation:
@@ -57,4 +57,4 @@ For a tree with d children that is implemented using an array, the following fun
 To find the nth child (1st child, 2nd child, etc.) the equation is this: **nth child = (i*d) + n**. In the previous example of a d=3 tree, the children of 0 are (0*3)+1 = 1; (0*3)+2 = 2; and (0*3)+3 = 3.  
 #### 4. What is one question that confused you about this exercise, or one piece of advice you would share with students next semester?
 
-TODO
+I am a little confused about O(lgn) time. I know it has something to do with the fact that this is a binary tree (base 2), but I do not quite understand where lgn comes from. 
