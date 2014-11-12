@@ -53,7 +53,8 @@ Questions
 
 | 9 | 17 | 16 | **19** | 26 | 50 | 55 | **93** | 69 | 32 | Ninety-three swaps with 19, its smaller child. It has no more children, so the swapping stops here.
 #### 3. Exercise 10.4 from http://opendatastructures.org/ods-cpp/10_3_Discussion_Exercises.html
-
+For a tree with d children that is implemented using an array, the following functions can be used to find the index of a node's parent and d children.  To find the parent, subtract one from the index and multiply by d: parent = (i-1)*d For example, in a tree with d=3 nodes 1, 2, and 3 will have parent 0. (1-1)/3 = 0; (2-1)/3 = 0; and (3-1)/3 = 0.
+To find the nth child (1st child, 2nd child, etc.) the equation is this: nth child = (i*d) + n. In the previous example of a d=3 tree, the children of 0 are (0*3)+1 = 1; (0*3)+2 = 2; and (0*3)+3 = 3.  
 #### 4. What is one question that confused you about this exercise, or one piece of advice you would share with students next semester?
 
 TODO
