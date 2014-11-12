@@ -130,8 +130,8 @@ void Heap<Pri, T>::trickleDown(unsigned long index){
 	
 	// Find the indices of the children. The left child will
 	// be at index*2+1, and the right child will be at index*2+2
-	unsigned long leftChild = index * 2 + 1;
-	unsigned long rightChild = index * 2 + 2;
+	int leftChild = index * 2 + 1;
+	int rightChild = index * 2 + 2;
 
 	// Put in a case that will prevent trickleDown when there
 	// are no children. There may still be values in the array 
