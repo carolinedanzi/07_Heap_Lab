@@ -69,6 +69,21 @@ void testHeap(){
 
 int main(){
   testHeap();
+  Heap<int, std::string> testHeap;
+  testHeap.add(std::make_pair(1, "1"));
+  testHeap.add(std::make_pair(2, "2"));
+  testHeap.add(std::make_pair(3, "3"));
+  testHeap.add(std::make_pair(4, "4"));
+  testHeap.add(std::make_pair(5, "5"));
+  testHeap.add(std::make_pair(6, "6"));
+  testHeap.add(std::make_pair(7, "7"));
+  testHeap.add(std::make_pair(8, "8"));
+  testHeap.add(std::make_pair(9, "9"));
+  testHeap.add(std::make_pair(10, "10"));
+  // Add one more to make the array grow
+  testHeap.add(std::make_pair(11, "11"));
+
+  std::cout << testHeap.getNumItems() << std::endl;
 
   return 0;
 }

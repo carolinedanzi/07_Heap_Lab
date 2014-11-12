@@ -89,6 +89,11 @@ void Heap<Pri, T>::grow(){
 
 template<class Pri, class T>
 void Heap<Pri, T>::add(std::pair<Pri, T> toAdd){
+	// If adding another item will go beyond the end of the
+	// array, grow the Heap
+	if (numItems + 1 > arrSize){
+		grow();
+	}
 	// Put the item at the end of the array (index = numItems)
 	// and "bubble it up" to where it should stay. Increase numItems.
 	backingArray[numItems] = toAdd;
@@ -127,7 +132,7 @@ void Heap<Pri, T>::trickleDown(unsigned long index){
 	// If the current priority is greater than one of its children's 
 	// priorities, switch it with the child with lower priority
 	// Swap and call trickleDown again with the index of the child we replaced
-	
+
 	// Find the indices of the children. The left child will
 	// be at index*2+1, and the right child will be at index*2+2
 	int leftChild = index * 2 + 1;
