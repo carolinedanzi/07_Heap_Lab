@@ -112,12 +112,13 @@ void Heap<Pri, T>::bubbleUp(unsigned long index){
 	// its parent's priority, swap them and then continue 
 	// to bubble up. Note: the parent of a node at index i 
 	// can be found at index (i-1)/2
-	else if (backingArray[index].first < backingArray[(index - 1) / 2].first){
-		std::pair<Pri, T> temp = backingArray[(index - 1) / 2];
-		backingArray[(index - 1) / 2] = backingArray[index];
+	int parent = (index - 1) / 2;
+	else if (backingArray[index].first < backingArray[parent].first){
+		std::pair<Pri, T> temp = backingArray[parent];
+		backingArray[parent] = backingArray[index];
 		backingArray[index] = temp;
 
-		bubbleUp((index - 1) / 2);
+		bubbleUp(parent);
 	}
 	// Else if the item's parent's priority is less than or equal to
 	// this item's priority, keep them where they are and just return
