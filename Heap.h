@@ -113,7 +113,7 @@ void Heap<Pri, T>::bubbleUp(unsigned long index){
 	// to bubble up. Note: the parent of a node at index i 
 	// can be found at index (i-1)/2
 	int parent = (index - 1) / 2;
-	else if (backingArray[index].first < backingArray[parent].first){
+	if (backingArray[index].first < backingArray[parent].first){
 		std::pair<Pri, T> temp = backingArray[parent];
 		backingArray[parent] = backingArray[index];
 		backingArray[index] = temp;
