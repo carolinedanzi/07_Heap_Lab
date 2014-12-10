@@ -85,5 +85,23 @@ int main(){
 
   std::cout << testHeap.getNumItems() << std::endl;
 
+  Heap<int, std::string> remTest;
+  remTest.add(std::make_pair(0, "0"));
+  remTest.add(std::make_pair(1, "1"));
+  remTest.add(std::make_pair(2, "2"));
+  remTest.remove();
+  std::pair<int, std::string> removedItem = remTest.remove();
+  std::pair<int, std::string> removedLast = remTest.remove();
+
+  std::cout << "Removed item should be 1 and it is: " << removedItem.first << std::endl;
+  std::cout << "Removed last item: " << removedLast.first << std::endl;
+
+  try{
+	  remTest.remove();
+  }
+  catch (std::string e){
+	  std::cout << "Caught exception: " << e << std::endl;
+  }
+
   return 0;
 }

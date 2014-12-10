@@ -147,7 +147,7 @@ void Heap<Pri, T>::trickleDown(unsigned long index){
 	if (leftChild >= numItems && rightChild >= numItems){
 		return;
 	}
-	// If the left child has lower priority and the left child
+	// If the left child has lower priority than the current item and the left child
 	// has lower priority than the right child, swap with the left
 	else if (backingArray[index].first > backingArray[leftChild].first && backingArray[leftChild].first < backingArray[rightChild].first){
 		std::pair<Pri, T> temp = backingArray[index];
