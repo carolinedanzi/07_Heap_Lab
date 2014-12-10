@@ -94,7 +94,7 @@ int main(){
   std::pair<int, std::string> removedLast = remTest.remove();
 
   std::cout << "Removed item should be 1 and it is: " << removedItem.first << std::endl;
-  std::cout << "Removed last item: " << removedLast.first << std::endl;
+  std::cout << "Removed last item should be 2: " << removedLast.first << std::endl;
 
   try{
 	  remTest.remove();
