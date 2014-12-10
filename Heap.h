@@ -171,7 +171,7 @@ void Heap<Pri, T>::trickleDown(unsigned long index){
 template<class Pri, class T>
 std::pair<Pri, T> Heap<Pri, T>::remove(){
 	if (numItems == 0)
-		throw new std::string("Tried to remove from an empty Queue");
+		throw std::string("Tried to remove from an empty Heap");
 
 	std::pair<Pri, T> removedItem = backingArray[0];
 
